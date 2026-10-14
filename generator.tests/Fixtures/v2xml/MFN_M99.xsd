@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Test fixture in the layout of HL7's v2.xml schemas, written for the Hl7SchemaGen tests (not HL7's files).
+    Message MFN_M99 (a made-up master file message) for test version v2.9.9: its records hold "any HL7 segment"
+    placeholders, two in a row as in RTB_Knn.
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml">
+  <xsd:include schemaLocation="segments.xsd"/>
+
+  <xsd:complexType name="MFN_M99.MF.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MFE" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="anyHL7Segment" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="anyHL7Segment" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MFN_M99.MF" type="MFN_M99.MF.CONTENT"/>
+
+  <xsd:complexType name="MFN_M99.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MSH" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MFI" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MFN_M99.MF" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MFN_M99" type="MFN_M99.CONTENT"/>
+</xsd:schema>

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Generates message XSDs (MSH + body in one schema) from HL7's v2.xml schemas.
+       scripts/build.js publishes it framework-dependent into bin/ for the extension; Hl7SchemaGen.ps1 compiles
+       V2XmlSchemaConverter.cs with Add-Type, which is why the sources use no implicit usings. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <AssemblyName>Hl7SchemaGen</AssemblyName>
+    <RootNamespace>Lambogenius.Hl7SchemaGen</RootNamespace>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <!-- dotnet pack: a .NET tool, `dotnet tool install -g Lambogenius.Hl7SchemaGen`, command `hl7schemagen`. -->
+  <PropertyGroup>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>hl7schemagen</ToolCommandName>
+    <PackageId>Lambogenius.Hl7SchemaGen</PackageId>
+    <Authors>lambogenius</Authors>
+    <Description>Generates one self-contained XSD per HL7 v2 message structure from HL7 International's v2.xml schemas.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/lambogenius/hl7-schemagen-vscode</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lambogenius/hl7-schemagen-vscode.git</RepositoryUrl>
+    <PackageTags>hl7;hl7v2;xsd;schema;logic-apps</PackageTags>
+  </PropertyGroup>
+
+</Project>

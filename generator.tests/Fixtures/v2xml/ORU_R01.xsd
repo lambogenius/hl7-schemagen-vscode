@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Test fixture in the layout of HL7's v2.xml schemas, written for the Hl7SchemaGen tests (not HL7's files).
+    Message ORU_R01 (cut down) for test version v2.9.9
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml">
+  <xsd:include schemaLocation="segments.xsd"/>
+
+  <xsd:complexType name="ORU_R01.PATIENT.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="PID" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="NTE" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ORU_R01.PATIENT" type="ORU_R01.PATIENT.CONTENT"/>
+  <xsd:complexType name="ORU_R01.OBSERVATION.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="OBX" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="NTE" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ORU_R01.OBSERVATION" type="ORU_R01.OBSERVATION.CONTENT"/>
+  <xsd:complexType name="ORU_R01.ORDER_OBSERVATION.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="OBR" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="NTE" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="ORU_R01.OBSERVATION" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ORU_R01.ORDER_OBSERVATION" type="ORU_R01.ORDER_OBSERVATION.CONTENT"/>
+  <xsd:complexType name="ORU_R01.PATIENT_RESULT.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="ORU_R01.PATIENT" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="ORU_R01.ORDER_OBSERVATION" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ORU_R01.PATIENT_RESULT" type="ORU_R01.PATIENT_RESULT.CONTENT"/>
+
+  <xsd:complexType name="ORU_R01.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MSH" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="ORU_R01.PATIENT_RESULT" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ORU_R01" type="ORU_R01.CONTENT"/>
+</xsd:schema>

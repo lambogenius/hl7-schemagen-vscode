@@ -1,0 +1,60 @@
+{
+  "name": "hl7-schemagen",
+  "displayName": "HL7 v2 Schema Generator",
+  "description": "Generate one XSD per HL7 v2 message structure (ADT_A01, ORU_R01, ...) from HL7 International's v2.xml schemas, ready for Azure Logic Apps.",
+  "version": "0.1.0",
+  "publisher": "lambogenius",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lambogenius/hl7-schemagen-vscode.git"
+  },
+  "homepage": "https://github.com/lambogenius/hl7-schemagen-vscode#readme",
+  "bugs": { "url": "https://github.com/lambogenius/hl7-schemagen-vscode/issues" },
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Programming Languages", "Other"],
+  "keywords": ["hl7", "hl7v2", "xsd", "schema", "logic apps", "healthcare", "biztalk"],
+  "main": "extension.cjs",
+  "activationEvents": ["onCommand:hl7SchemaGen.generate", "onCommand:hl7SchemaGen.generateHere"],
+  "contributes": {
+    "commands": [
+      { "command": "hl7SchemaGen.generate", "title": "HL7: Generate Schemas from v2.xml" },
+      { "command": "hl7SchemaGen.generateHere", "title": "HL7: Generate Schemas Here" }
+    ],
+    "menus": {
+      "commandPalette": [{ "command": "hl7SchemaGen.generateHere", "when": "false" }],
+      "explorer/context": [{ "command": "hl7SchemaGen.generateHere", "when": "explorerResourceIsFolder", "group": "7_modification" }]
+    },
+    "configuration": {
+      "title": "HL7 Schema Generator",
+      "properties": {
+        "hl7SchemaGen.namespace": {
+          "type": "string",
+          "default": "http://lambogenius.com/HealthCare/HL7/2X",
+          "description": "Target namespace of the generated message roots."
+        },
+        "hl7SchemaGen.versionedRoot": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add the HL7 version to the root name (ADT_A01_251, as in the BizTalk 2.X library) so several versions can share a folder. Off: ADT_A01."
+        },
+        "hl7SchemaGen.dotnetPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the dotnet executable (.NET 8 or later). Empty: dotnet on PATH, then the .NET Install Tool extension."
+        }
+      }
+    }
+  },
+  "files": ["extension.cjs", "lib/**", "bin/**", "media/icon.png", "README.md", "CHANGELOG.md", "LICENSE"],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test",
+    "test:generator": "dotnet test generator.tests",
+    "package": "npm run build && npx @vscode/vsce package --allow-missing-repository --out artifacts/hl7-schemagen.vsix",
+    "prepackage:vsix": "npm run build",
+    "package:vsix": "npx @vscode/vsce package --allow-missing-repository --out artifacts/hl7-schemagen.vsix",
+    "reinstall:extension": "node scripts/reinstall-extension.js"
+  }
+}

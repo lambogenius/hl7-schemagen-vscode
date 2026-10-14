@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Test fixture in the layout of HL7's v2.xml schemas, written for the Hl7SchemaGen tests (not HL7's files).
+    Segments for test version v2.9.9
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml">
+  <xsd:include schemaLocation="fields.xsd"/>
+
+  <xsd:complexType name="MSH.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MSH.1" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.2" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.3" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="MSH.7" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.9" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.10" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.11" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="MSH.12" minOccurs="1" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MSH" type="MSH.CONTENT"/>
+  <xsd:complexType name="PID.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="PID.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="PID.3" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="PID.5" minOccurs="1" maxOccurs="unbounded"/>
+      <xsd:element ref="PID.8" minOccurs="0" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PID" type="PID.CONTENT"/>
+  <xsd:complexType name="OBR.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="OBR.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="OBR.4" minOccurs="1" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OBR" type="OBR.CONTENT"/>
+  <xsd:complexType name="OBX.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="OBX.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="OBX.2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="OBX.3" minOccurs="1" maxOccurs="1"/>
+      <xsd:element ref="OBX.5" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="OBX.11" minOccurs="1" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OBX" type="OBX.CONTENT"/>
+  <xsd:complexType name="NTE.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="NTE.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="NTE.3" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NTE" type="NTE.CONTENT"/>
+  <xsd:complexType name="MFI.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MFI.1" minOccurs="1" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MFI" type="MFI.CONTENT"/>
+  <xsd:complexType name="MFE.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="MFE.1" minOccurs="1" maxOccurs="1"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="MFE" type="MFE.CONTENT"/>
+  <xsd:complexType name="STF.CONTENT">
+    <xsd:sequence>
+      <xsd:element ref="STF.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="STF.3" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:any processContents="lax" namespace="##other" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="STF" type="STF.CONTENT"/>
+  <xsd:complexType name="anyHL7Segment.TYPE">
+    <xsd:choice>
+      <xsd:element ref="MSH" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="PID" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="OBR" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="OBX" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="NTE" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="MFI" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="MFE" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="STF" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:element name="anyHL7Segment" type="anyHL7Segment.TYPE"/>
+  <xsd:complexType name="anyZSegment.TYPE">
+    <xsd:sequence><xsd:any processContents="lax" namespace="##any"/></xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="anyZSegment" type="anyZSegment.TYPE"/>
+</xsd:schema>

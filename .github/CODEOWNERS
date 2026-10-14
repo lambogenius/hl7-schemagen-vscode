@@ -1,0 +1,3 @@
+# Default code owners for this repository. PRs touching any files should be reviewed by this team/user.
+# Ensure the @lambogenius/owners team exists and has the appropriate access in the lambogenius organization.
+* @lambogenius/owners @gotham-sunrise

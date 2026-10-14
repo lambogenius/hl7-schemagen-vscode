@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Test fixture in the layout of HL7's v2.xml schemas, written for the Hl7SchemaGen tests (not HL7's files).
+    Datatypes for test version v2.9.9
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml">
+  <xsd:simpleType name="ST"><xsd:restriction base="xsd:string"/></xsd:simpleType>
+  <xsd:simpleType name="ID"><xsd:restriction base="xsd:string"/></xsd:simpleType>
+  <xsd:simpleType name="SI"><xsd:restriction base="xsd:string"/></xsd:simpleType>
+  <xsd:simpleType name="NM"><xsd:restriction base="xsd:string"/></xsd:simpleType>
+  <xsd:simpleType name="DTM"><xsd:restriction base="xsd:string"/></xsd:simpleType>
+
+  <xsd:complexType name="escapeType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string"><xsd:attribute name="V" type="xsd:string"/></xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="FT" mixed="true">
+    <xsd:sequence><xsd:element name="escape" type="escapeType" minOccurs="0" maxOccurs="unbounded"/></xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="varies"><xsd:complexContent><xsd:extension base="xsd:anyType"/></xsd:complexContent></xsd:complexType>
+
+  <!-- HD -->
+  <xsd:attributeGroup name="HD.1.ATTRIBUTES">
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Namespace ID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="HD.1.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="HD.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="HD.1" type="HD.1.CONTENT"/>
+  <xsd:attributeGroup name="HD.2.ATTRIBUTES">
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Universal ID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="HD.2.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="HD.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="HD.2" type="HD.2.CONTENT"/>
+  <xsd:complexType name="HD">
+    <xsd:sequence>
+      <xsd:element ref="HD.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="HD.2" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- MSG -->
+  <xsd:attributeGroup name="MSG.1.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Message Code"/></xsd:attributeGroup>
+  <xsd:complexType name="MSG.1.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="MSG.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSG.1" type="MSG.1.CONTENT"/>
+  <xsd:attributeGroup name="MSG.2.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Trigger Event"/></xsd:attributeGroup>
+  <xsd:complexType name="MSG.2.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="MSG.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSG.2" type="MSG.2.CONTENT"/>
+  <xsd:attributeGroup name="MSG.3.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Message Structure"/></xsd:attributeGroup>
+  <xsd:complexType name="MSG.3.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="MSG.3.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSG.3" type="MSG.3.CONTENT"/>
+  <xsd:complexType name="MSG">
+    <xsd:sequence>
+      <xsd:element ref="MSG.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="MSG.2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="MSG.3" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- FN (sub-components of XPN.1) -->
+  <xsd:attributeGroup name="FN.1.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Surname"/></xsd:attributeGroup>
+  <xsd:complexType name="FN.1.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="FN.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="FN.1" type="FN.1.CONTENT"/>
+  <xsd:attributeGroup name="FN.2.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Own Surname Prefix"/></xsd:attributeGroup>
+  <xsd:complexType name="FN.2.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="FN.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="FN.2" type="FN.2.CONTENT"/>
+  <xsd:complexType name="FN">
+    <xsd:sequence>
+      <xsd:element ref="FN.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="FN.2" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- XPN -->
+  <xsd:attributeGroup name="XPN.1.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Family Name"/></xsd:attributeGroup>
+  <xsd:complexType name="XPN.1.CONTENT"><xsd:complexContent><xsd:extension base="FN"><xsd:attributeGroup ref="XPN.1.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="XPN.1" type="XPN.1.CONTENT"/>
+  <xsd:attributeGroup name="XPN.2.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Given Name"/></xsd:attributeGroup>
+  <xsd:complexType name="XPN.2.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="XPN.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="XPN.2" type="XPN.2.CONTENT"/>
+  <xsd:complexType name="XPN">
+    <xsd:sequence>
+      <xsd:element ref="XPN.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="XPN.2" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- CWE -->
+  <xsd:attributeGroup name="CWE.1.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Identifier"/></xsd:attributeGroup>
+  <xsd:complexType name="CWE.1.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="CWE.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="CWE.1" type="CWE.1.CONTENT"/>
+  <xsd:attributeGroup name="CWE.2.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Text"/></xsd:attributeGroup>
+  <xsd:complexType name="CWE.2.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="CWE.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="CWE.2" type="CWE.2.CONTENT"/>
+  <xsd:attributeGroup name="CWE.3.ATTRIBUTES"><xsd:attribute name="LongName" type="xsd:string" fixed="Name of Coding System"/></xsd:attributeGroup>
+  <xsd:complexType name="CWE.3.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="CWE.3.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="CWE.3" type="CWE.3.CONTENT"/>
+  <xsd:complexType name="CWE">
+    <xsd:sequence>
+      <xsd:element ref="CWE.1" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="CWE.2" minOccurs="0" maxOccurs="1"/>
+      <xsd:element ref="CWE.3" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

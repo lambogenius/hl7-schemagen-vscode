@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Test fixture in the layout of HL7's v2.xml schemas, written for the Hl7SchemaGen tests (not HL7's files).
+    Fields for test version v2.9.9
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v2xml" targetNamespace="urn:hl7-org:v2xml">
+  <xsd:include schemaLocation="datatypes.xsd"/>
+
+  <xsd:attributeGroup name="MSH.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Field Separator"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.1.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="MSH.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.1" type="MSH.1.CONTENT"/>
+  <xsd:attributeGroup name="MSH.2.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="2"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Encoding Characters"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.2.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="MSH.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.2" type="MSH.2.CONTENT"/>
+  <xsd:attributeGroup name="MSH.3.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="3"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="HD"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Sending Application"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.3.CONTENT"><xsd:complexContent><xsd:extension base="HD"><xsd:attributeGroup ref="MSH.3.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="MSH.3" type="MSH.3.CONTENT"/>
+  <xsd:attributeGroup name="MSH.7.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="7"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="DTM"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Date/Time of Message"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.7.CONTENT"><xsd:simpleContent><xsd:extension base="DTM"><xsd:attributeGroup ref="MSH.7.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.7" type="MSH.7.CONTENT"/>
+  <xsd:attributeGroup name="MSH.9.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="9"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="MSG"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Message Type"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.9.CONTENT"><xsd:complexContent><xsd:extension base="MSG"><xsd:attributeGroup ref="MSH.9.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="MSH.9" type="MSH.9.CONTENT"/>
+  <xsd:attributeGroup name="MSH.10.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="10"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Message Control ID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.10.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="MSH.10.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.10" type="MSH.10.CONTENT"/>
+  <xsd:attributeGroup name="MSH.11.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="11"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Processing ID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.11.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="MSH.11.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.11" type="MSH.11.CONTENT"/>
+  <xsd:attributeGroup name="MSH.12.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="12"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Version ID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MSH.12.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="MSH.12.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MSH.12" type="MSH.12.CONTENT"/>
+  <xsd:attributeGroup name="PID.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="SI"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Set ID - PID"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="PID.1.CONTENT"><xsd:simpleContent><xsd:extension base="SI"><xsd:attributeGroup ref="PID.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="PID.1" type="PID.1.CONTENT"/>
+  <xsd:attributeGroup name="PID.3.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="3"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ST"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Patient Identifier List"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="PID.3.CONTENT"><xsd:simpleContent><xsd:extension base="ST"><xsd:attributeGroup ref="PID.3.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="PID.3" type="PID.3.CONTENT"/>
+  <xsd:attributeGroup name="PID.5.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="5"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="XPN"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Patient Name"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="PID.5.CONTENT"><xsd:complexContent><xsd:extension base="XPN"><xsd:attributeGroup ref="PID.5.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="PID.5" type="PID.5.CONTENT"/>
+  <xsd:attributeGroup name="PID.8.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="8"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ID"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Administrative Sex"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="PID.8.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="PID.8.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="PID.8" type="PID.8.CONTENT"/>
+  <xsd:attributeGroup name="OBR.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="SI"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Set ID - OBR"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBR.1.CONTENT"><xsd:simpleContent><xsd:extension base="SI"><xsd:attributeGroup ref="OBR.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="OBR.1" type="OBR.1.CONTENT"/>
+  <xsd:attributeGroup name="OBR.4.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="4"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="CWE"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Universal Service Identifier"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBR.4.CONTENT"><xsd:complexContent><xsd:extension base="CWE"><xsd:attributeGroup ref="OBR.4.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="OBR.4" type="OBR.4.CONTENT"/>
+  <xsd:attributeGroup name="OBX.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="SI"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Set ID - OBX"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBX.1.CONTENT"><xsd:simpleContent><xsd:extension base="SI"><xsd:attributeGroup ref="OBX.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="OBX.1" type="OBX.1.CONTENT"/>
+  <xsd:attributeGroup name="OBX.2.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="2"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ID"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Value Type"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBX.2.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="OBX.2.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="OBX.2" type="OBX.2.CONTENT"/>
+  <xsd:attributeGroup name="OBX.3.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="3"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="CWE"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Observation Identifier"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBX.3.CONTENT"><xsd:complexContent><xsd:extension base="CWE"><xsd:attributeGroup ref="OBX.3.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="OBX.3" type="OBX.3.CONTENT"/>
+  <xsd:attributeGroup name="OBX.5.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="5"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="varies"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Observation Value"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBX.5.CONTENT"><xsd:complexContent><xsd:extension base="varies"><xsd:attributeGroup ref="OBX.5.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="OBX.5" type="OBX.5.CONTENT"/>
+  <xsd:attributeGroup name="OBX.11.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="11"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ID"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Observation Result Status"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="OBX.11.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="OBX.11.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="OBX.11" type="OBX.11.CONTENT"/>
+  <xsd:attributeGroup name="NTE.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="SI"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Set ID - NTE"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="NTE.1.CONTENT"><xsd:simpleContent><xsd:extension base="SI"><xsd:attributeGroup ref="NTE.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="NTE.1" type="NTE.1.CONTENT"/>
+  <xsd:attributeGroup name="NTE.3.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="3"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="FT"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Comment"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="NTE.3.CONTENT"><xsd:complexContent><xsd:extension base="FT"><xsd:attributeGroup ref="NTE.3.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="NTE.3" type="NTE.3.CONTENT"/>
+  <xsd:attributeGroup name="MFI.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="CWE"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Master File Identifier"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MFI.1.CONTENT"><xsd:complexContent><xsd:extension base="CWE"><xsd:attributeGroup ref="MFI.1.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="MFI.1" type="MFI.1.CONTENT"/>
+  <xsd:attributeGroup name="MFE.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="ID"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Record-Level Event Code"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="MFE.1.CONTENT"><xsd:simpleContent><xsd:extension base="ID"><xsd:attributeGroup ref="MFE.1.ATTRIBUTES"/></xsd:extension></xsd:simpleContent></xsd:complexType>
+  <xsd:element name="MFE.1" type="MFE.1.CONTENT"/>
+  <xsd:attributeGroup name="STF.1.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="1"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="CWE"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Primary Key Value - STF"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="STF.1.CONTENT"><xsd:complexContent><xsd:extension base="CWE"><xsd:attributeGroup ref="STF.1.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="STF.1" type="STF.1.CONTENT"/>
+  <xsd:attributeGroup name="STF.3.ATTRIBUTES">
+    <xsd:attribute name="Item" type="xsd:string" fixed="3"/>
+    <xsd:attribute name="Type" type="xsd:string" fixed="XPN"/>
+    <xsd:attribute name="LongName" type="xsd:string" fixed="Staff Name"/>
+  </xsd:attributeGroup>
+  <xsd:complexType name="STF.3.CONTENT"><xsd:complexContent><xsd:extension base="XPN"><xsd:attributeGroup ref="STF.3.ATTRIBUTES"/></xsd:extension></xsd:complexContent></xsd:complexType>
+  <xsd:element name="STF.3" type="STF.3.CONTENT"/>
+</xsd:schema>
